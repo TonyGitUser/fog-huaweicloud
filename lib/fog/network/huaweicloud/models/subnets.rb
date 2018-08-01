@@ -14,13 +14,13 @@ module Fog
           super
         end
 
-        def all(filters_arg = filters)
+        def all(filters_arg = filters, openstack_compatible=true)
           filters = filters_arg
-          load_response(service.list_subnets(filters), 'subnets')
+          load_response(service.list_subnets(filters, openstack_compatible), 'subnets')
         end
 
-        def get(subnet_id)
-          if subnet = service.get_subnet(subnet_id).body['subnet']
+        def get(subnet_id, openstack_compatible=true)
+          if subnet = service.get_subnet(subnet_id, openstack_compatible).body['subnet']
             new(subnet)
           end
         rescue Fog::Network::HuaweiCloud::NotFound
