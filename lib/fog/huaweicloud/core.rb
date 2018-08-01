@@ -76,9 +76,14 @@ module Fog
 
       private
 
-      def request(params, parse_json = true)
+      def request(params, parse_json = true, overwrite_version={})
         retried = false
         begin
+          # NOTE: This is only for transition usage. It should be removed once we upgraded all
+          # the APIs to non-OpenStack version.
+          overwrite_version.each do |key, value|
+            @path.sub!(key, value)
+          end
           response = @connection.request(params.merge(
                                            :headers => headers(params.delete(:headers)),
                                            :path    => "#{@path}/#{params[:path]}"

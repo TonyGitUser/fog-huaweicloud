@@ -2,17 +2,16 @@ module Fog
   module Network
     class HuaweiCloud
       class Real
-        def get_subnet(subnet_id)
-          request(
-            :expects => [200],
-            :method  => 'GET',
-            :path    => "subnets/#{subnet_id}"
+        def get_subnet(subnet_id,openstack_compatible = true)
+          overwrite_version = openstack_compatible ? {} : {'v2.0': 'v1'}
+          request({:expects => [200], :method=> 'GET', :path => "subnets/#{subnet_id}"},
+                  true, overwrite_version
           )
         end
       end
 
       class Mock
-        def get_subnet(subnet_id)
+        def get_subnet(subnet_id, openstack_compatible = true)
           response = Excon::Response.new
           if data = self.data[:subnets][subnet_id]
             response.status = 200
