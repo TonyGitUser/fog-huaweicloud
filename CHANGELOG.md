@@ -44,4 +44,4 @@
 ## Compute
 
 * create_server and the Server model where updated to allow booting a VM
-  with NICs (net_id, port_id, fixed_ip).
+  with NICs (subnet_id, port_id, fixed_ip).
