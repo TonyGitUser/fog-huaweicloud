@@ -82,7 +82,7 @@ module Fog
           # NOTE: This is only for transition usage. It should be removed once we upgraded all
           # the APIs to non-OpenStack version.
           overwrite_version.each do |key, value|
-            @path.sub!(key, value + "/" + @current_tenant['id']))
+            @path.sub!(key, value + "/" + @current_tenant['id'])
           end
           response = @connection.request(params.merge(
                                            :headers => headers(params.delete(:headers)),
