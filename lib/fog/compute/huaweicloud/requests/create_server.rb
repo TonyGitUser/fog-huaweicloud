@@ -46,7 +46,7 @@ module Fog
             data['server']['networks'] =
               Array(options['nics']).map do |nic|
                 neti = {}
-                neti['uuid'] = (nic['net_id'] || nic[:net_id]) unless (nic['net_id'] || nic[:net_id]).nil?
+                neti['uuid'] = (nic['subnet_id'] || nic[:subnet_id]) unless (nic['subnet_id'] || nic[:subnet_id]).nil?
                 neti['fixed_ip'] = (nic['v4_fixed_ip'] || nic[:v4_fixed_ip]) unless (nic['v4_fixed_ip'] || nic[:v4_fixed_ip]).nil?
                 neti['port'] = (nic['port_id'] || nic[:port_id]) unless (nic['port_id'] || nic[:port_id]).nil?
                 neti
