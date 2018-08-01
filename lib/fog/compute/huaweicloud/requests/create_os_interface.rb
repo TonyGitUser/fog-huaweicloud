@@ -12,8 +12,8 @@ module Fog
 
           if options[:port_id]
             body['interfaceAttachment']['port_id'] = options[:port_id]
-          elsif options[:net_id]
-            body['interfaceAttachment']['net_id'] = options[:net_id]
+          elsif options[:subnet_id]
+            body['interfaceAttachment']['subnet_id'] = options[:subnet_id]
           end
 
           if options[:ip_address]

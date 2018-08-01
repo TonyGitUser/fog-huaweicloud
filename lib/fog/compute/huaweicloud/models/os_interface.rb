@@ -7,7 +7,7 @@ module Fog
         identity  :port_id
         attribute :fixed_ips, :type => :array
         attribute :mac_addr
-        attribute :net_id
+        attribute :subnet_id
         attribute :port_state
       end
     end
