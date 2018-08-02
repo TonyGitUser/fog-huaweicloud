@@ -3,7 +3,7 @@ module Fog
     class HuaweiCloud
       class Real
         def list_subnets(filters = {}, openstack_compatible = true)
-          overwrite_version = openstack_compatible ? {} : {'v2.0' => 'v1'}
+          overwrite_version = openstack_compatible ? {} : {"v2.0"=> "v1/#{@current_tenant['id']}"}
           request(
             {:expects => 200, :method => 'GET', :path => 'subnets', :query => filters},
             true, overwrite_version
