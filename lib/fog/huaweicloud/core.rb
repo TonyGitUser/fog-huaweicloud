@@ -81,12 +81,13 @@ module Fog
         begin
           # NOTE: This is only for transition usage. It should be removed once we upgraded all
           # the APIs to non-OpenStack version.
+          real_path = @path.clone
           overwrite_version.each do |key, value|
-            @path.sub!(key, value)
+            real_path.sub!(key, value)
           end
           response = @connection.request(params.merge(
                                            :headers => headers(params.delete(:headers)),
-                                           :path    => "#{@path}/#{params[:path]}"
+                                           :path    => "#{real_path}/#{params[:path]}"
           ))
         rescue Excon::Errors::Unauthorized => error
           # token expiration and token renewal possible
