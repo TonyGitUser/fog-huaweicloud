@@ -1,5 +1,5 @@
 module Fog
   module HuaweiCloud
-    VERSION = '0.1.3'.freeze
+    VERSION = '0.0.3'.freeze
   end
 end
