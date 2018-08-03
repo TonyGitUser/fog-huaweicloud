@@ -1,5 +1,6 @@
 require 'test_helper'
 
+require 'fog/core'
 require 'fog/volume/huaweicloud'
 require 'fog/volume/huaweicloud/v1'
 require 'fog/volume/huaweicloud/v2'

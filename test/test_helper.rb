@@ -4,6 +4,7 @@
 
 require 'minitest/autorun'
 require "minitest/spec"
+require 'bundler'
 require 'fog/core'
 require 'fog/test_helpers/types_helper.rb'
 require 'fog/test_helpers/minitest/assertions'

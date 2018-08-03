@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe "Fog::Storage[:huaweicloud], ['openstack', 'storage']" do
+describe "Fog::Storage[:huaweicloud], ['huaweicloud', 'storage']" do
   before do
     @storage = Fog::Storage[:huaweicloud]
     @original_path = @storage.instance_variable_get :@path
